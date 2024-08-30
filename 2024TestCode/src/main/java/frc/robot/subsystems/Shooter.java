@@ -49,7 +49,7 @@ public class Shooter extends SubsystemBase{
     public void SetRPS(double _RPS){
         m_TargetRPS=_RPS;
         m_ShooterLeft.setControl(m_DutyCycle.withVelocity(_RPS));
-        m_ShooterRight.setControl(m_DutyCycle.withVelocity(_RPS+5));
+        m_ShooterRight.setControl(m_DutyCycle.withVelocity(_RPS));
     }
 
     public void SetPCT(double _PCT){
