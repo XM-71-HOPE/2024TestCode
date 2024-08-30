@@ -8,12 +8,16 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.robot.subsystems.TankChassis;
+import frc.robot.subsystems.*;
 
 public class RobotContainer {
 
   public static TankChassis m_tankChassis = null;
   public static XboxController m_Controller = new XboxController(0);
+  public static Shooter m_Shooter = Shooter.GetInstance();
+  public static Blocker m_Blocker = Blocker.GetInstance();
+  public static Arm m_Arm = Arm.GetInstance();
+  public static TankChassis m_Chassis = TankChassis.m_Instance.GetInstance();
 
   public RobotContainer() {
     configureBindings();
