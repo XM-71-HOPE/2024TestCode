@@ -73,6 +73,8 @@ public class Arm extends SubsystemBase {
         _degree = NumberLimiter.Limit(ArmConstants.ArmDefaultDegree, 180., _degree);
         _degree = _degree + m_OffsetDeg;
         _rotation = _degree / 360.;
+        m_ArmLeft.setControl(m_MotionMagicDutyCycle.withPosition(_rotation));
+        m_ArmRight.setControl(m_MotionMagicDutyCycle.withPosition(_rotation));
     }
 
     public void SetPCT(double _PCT) {
@@ -106,8 +108,6 @@ public class Arm extends SubsystemBase {
 
     @Override
     public void periodic() {
-        m_ArmLeft.setControl(m_MotionMagicDutyCycle.withPosition(_rotation));
-        m_ArmRight.setControl(m_MotionMagicDutyCycle.withPosition(_rotation));
         SmartDashboard.putNumber("LeftArmPos", m_ArmLeft.getPosition().getValue());
         SmartDashboard.putNumber("RightArmPos", m_ArmRight.getPosition().getValue());
         SmartDashboard.putNumber("LeftArmAngle", m_ArmLeft.getPosition().getValue() * 360);
